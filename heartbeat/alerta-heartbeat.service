@@ -1,0 +1,13 @@
+[Unit]
+Description=Alerta Heartbeat service
+Documentation=https://http://docs.alerta.io/en/latest/deployment.html#house-keeping
+Wants=network-online.target
+
+[Service]
+User=alerta
+Group=alerta
+ExecStart=-/opt/alerta/bin/alerta --config-file /home/alerta/.alerta.conf heartbeat --timeout 120
+WorkingDirectory=/home/alerta
+
+[Install]
+WantedBy=multi-user.target

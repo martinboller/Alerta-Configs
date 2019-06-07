@@ -1,0 +1,13 @@
+[Unit]
+Description=Alerta Housekeeping
+Documentation=https://http://docs.alerta.io/en/latest/deployment.html#house-keeping
+Wants=network-online.target
+
+[Service]
+User=alerta
+Group=alerta
+ExecStart=-/opt/alerta/bin/alerta --config-file /home/alerta/.alerta.conf housekeeping
+WorkingDirectory=/home/alerta
+
+[Install]
+WantedBy=multi-user.target

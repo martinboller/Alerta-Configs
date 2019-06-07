@@ -1,0 +1,11 @@
+[Unit]
+Description=Checks heartbeats and alerts if timed out
+Documentation=https://http://docs.alerta.io/en/latest/deployment.html#house-keeping
+Wants=network-online.target
+
+[Timer]
+OnUnitActiveSec=120s
+Unit=alerta-heartbeats-alert.service
+
+[Install]
+WantedBy=multi-user.target
